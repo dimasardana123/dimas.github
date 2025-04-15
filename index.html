@@ -33,6 +33,15 @@
             <div class="skill">React</div>
             <div class="skill">Node.js</div>
             <div class="skill">Python</div>
+            <div class="skill">Java</div>
+            <div class="skill">C++</div>
+            <div class="skill">PHP</div>
+            <div class="skill">Ruby</div>
+            <div class="skill">SQL</div>
+        </div>
+        <div class="pagination">
+            <button class="prev" onclick="changePage(-1)">Previous</button>
+            <button class="next" onclick="changePage(1)">Next</button>
         </div>
     </section>
 
@@ -45,6 +54,29 @@
 <footer>
     <p>&copy; 2023 My Portfolio</p>
 </footer>
+
+<script>
+    let currentPage = 1;
+    const skillsPerPage = 5;
+    const skills = document.querySelectorAll('.skill');
+    const totalPages = Math.ceil(skills.length / skillsPerPage);
+
+    function showPage(page) {
+        skills.forEach((skill, index) => {
+            skill.style.display = (index >= (page - 1) * skillsPerPage && index < page * skillsPerPage) ? 'block' : 'none';
+        });
+    }
+
+    function changePage(direction) {
+        currentPage += direction;
+        if (currentPage < 1) currentPage = 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+        showPage(currentPage);
+    }
+
+    // Initial display
+    showPage(currentPage);
+</script>
 
 </body>
 </html>
