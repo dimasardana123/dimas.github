@@ -7,64 +7,49 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Slightly lighter background for better contrast */
+    background-color: #f9f9f9;
     color: #333;
 }
 
 .container {
     width: 90%;
-    max-width: 1200px; /* Increased max-width for a more spacious layout */
+    max-width: 1000px;
     margin: auto;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 header {
-    background-color: #007bff; /* Bootstrap primary color for a professional look */
+    background-color: #333;
     color: white;
     padding: 20px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
 }
 
 header h1 {
     text-align: center;
     margin-bottom: 10px;
-    font-size: 2.5rem; /* Increased font size for prominence */
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 30px; /* Increased gap for better spacing */
+    gap: 20px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s; /* Smooth transition for hover effect */
-}
-
-nav ul li a:hover {
-    color: #ffcc00; /* Gold color on hover for a professional touch */
 }
 
 section {
-    padding: 60px 0; /* Increased padding for more breathing space */
-    text-align: center; /* Centered text for a cleaner look */
-}
-
-h2 {
-    font-size: 2rem; /* Consistent heading size */
-    margin-bottom: 20px; /* Space below headings */
-    color: #007bff; /* Consistent color for headings */
+    padding: 40px 0;
 }
 
 .skills-list {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centered skills list */
     gap: 15px;
     padding-top: 10px;
 }
@@ -73,23 +58,12 @@ h2 {
     background-color: #e0e0e0;
     padding: 10px 20px;
     border-radius: 20px;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-.skills-list li:hover {
-    background-color: #007bff; /* Change background on hover */
-    color: white; /* Change text color on hover */
 }
 
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 20px 0; /* Increased padding for a more substantial footer */
+    padding: 15px 0;
     margin-top: 40px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
-}
-
-footer p {
-    margin: 0; /* Remove default margin */
 }
