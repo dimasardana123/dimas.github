@@ -1,79 +1,748 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Portfolio of Mohamad Dimas Ardana Pramudya Putra, showcasing skills and projects." />
-    <meta name="keywords" content="portfolio, web development, skills, contact, information systems" />
-    <title>Mohamad Dimas Ardana Pramudya Putra's Portfolio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Dimas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        /* Sticky Navbar */
-        .navbar {
+        /* CSS Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color:#333;
+            --text-light: #777;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color:#f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header dan Navigasi */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 1000; /* Ensure it stays above other content */
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        section h1, section h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .card .date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        /* Contact Section Modifications */
+.contact-container {
+    margin-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#map {
+    height: 500px;
+    border-left: 1px solid #eee;
+}
+
+.location-info {
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+#checkout-form {
+    padding: 2rem;
+    background: white;
+}
+
+.descriptor-marker {
+    background-color: #e74c3c;
+    border-radius: 50%;
+    color: white;
+    padding: 8px 11px;
+    font-size: 0.9rem;
+}
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        /* Form Styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: var(--primary-color);
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places,marker&callback=initMap">
+</script>
+<!-- Add this right before </body> -->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places,marker&callback=initMap">
+</script>
 <body>
-    <header class="bg-primary text-white">
+    <header>
         <div class="container">
-            <h1 class="py-4">Mohamad Dimas Ardana Pramudya Putra</h1>
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+            <nav>
+                <div class="logo">Portofolio Saya</div>
+                <!-- In the navigation section -->
+<ul class="nav-links">
+    <li><a href="#about">Tentang Saya</a></li>
+    <li><a href="#projects">Proyek</a></li>
+    <li><a href="#portfolio">Portofolio</a></li>
+    <li><a href="#skills">Keahlian</a></li> <!-- Changed from Galeri to Keahlian -->
+    <li><a href="#education">Pendidikan</a></li>
+    <li><a href="#contact">Hubungi Saya</a></li>
+</ul>
+                <div class="hamburger">☰</div>
             </nav>
         </div>
     </header>
 
-    <main class="container my-5">
-        <div id="home" class="section">
-            <h2>Welcome to My Portfolio</h2>
-            <p>Explore my projects and skills in the field of Information Systems.</p>
-        </div>
-        
-        <div id="about" class="section">
-            <h2>About Me</h2>
-            <p>I am Mohamad Dimas Ardana Pramudya Putra, a dedicated student majoring in Information Systems. I have a passion for technology and a keen interest in developing innovative solutions to real-world problems. My studies have equipped me with a solid foundation in software development, data management, and system analysis.</p>
-        </div>
-        
-        <div id="skills" class="section">
-            <h2>Skills</h2>
-            <ul>
-                <li>Web Development (HTML, CSS, JavaScript)</li>
-                <li>Database Management (SQL, NoSQL)</li>
-                <li>Data Analysis and Visualization</li>
-                <li>Software Development (Java, Python)</li>
-                <li>Project Management</li>
-            </ul>
-        </div>
-        
-        <div id="contact" class="section">
-            <h2>Contact Me</h2>
-            <p>If you would like to get in touch, feel free to reach out via email or connect with me on LinkedIn.</p>
-            <p>Email: <a href="mailto:bismillahlolosguys@gmail.com">bismillahlolosguys@gmail.com</a></p>
-            <p>Location: <i class="fas fa-map-marker-alt"></i> Gresik, East Java</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/your-profile" target="_blank">Your LinkedIn Profile</a></p>
-        </div>
-    </main>
+    <main class="container">
+        <section id="about">
+            <h1>Tentang Saya</h1>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Halo, saya Mohamad Dimas Ardana Pramudya Putra, seorang pengembang web yang fokus pada pembuatan aplikasi web yang mudah digunakan dan menarik. Saya memiliki minat besar dalam desain UI/UX dan pengembangan frontend.
 
-    <footer class="bg-dark text-white text-center py-3">
+Dengan pengalaman lebih dari 3 tahun, saya telah mengerjakan berbagai proyek, mulai dari website sederhana hingga aplikasi web yang lebih kompleks. Saya selalu berusaha untuk mengikuti perkembangan teknologi terbaru dalam pengembangan web, termasuk teknik desain responsif dan praktik terbaik dalam pengalaman pengguna.
+
+Saat ini, saya juga sedang menempuh studi di jurusan Sistem Informasi di Universitas Internasional Semen Indonesia untuk memperdalam pengetahuan saya dalam teknologi dan pengembangan perangkat lunak..</p>
+                </div>
+                <img src="FOTO MAHASISWA UISI DIMAS.jpeg" alt="Profile" class="profile-img">
+            </div>
+           <section id="skills">
+    <h1>Keahlian</h1>
+    <div class="skills-container">
+        <div class="skill-item">
+            <i class="fab fa-html5"></i>
+            <h4>HTML5</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-css3-alt"></i>
+            <h4>CSS3</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-js"></i>
+            <h4>JavaScript</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-php"></i>
+            <h4>PHP</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-laravel"></i>
+            <h4>Laravel</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-react"></i>
+            <h4>React</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-figma"></i>
+            <h4>Figma</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fas fa-database"></i>
+            <h4>MySQL</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-git-alt"></i>
+            <h4>Git</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-github"></i>
+            <h4>GitHub</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-node"></i>
+            <h4>Node.js</h4>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-npm"></i>
+            <h4>NPM</h4>
+        </div>
+    </div>
+</section>
+            
+            <style>
+           /* Skills Section Styles */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.skill-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    transition: transform 0.3s;
+}
+
+/* Icon Colors - Customize as needed */
+.fa-html5 { color: #E34F26; }
+.fa-css3-alt { color: #2965f1; }
+.fa-js { color: #F7DF1E; }
+.fa-react { color: #61DAFB; }
+.fa-node { color: #68A063; }
+.fa-laravel { color: #FF2D20; }
+.fa-php { color: #777BB3; }
+.fa-figma { color: #F24E1E; }
+.fa-git-alt { color: #F05032; }
+.fa-database { color: #00758F; }
+.fa-github { color: #181717; }
+.fa-npm { color: #CB3837; }
+
+/* Hover Effects */
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+            </style>
+            
+            <script>
+            // Add this to your existing JavaScript
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize skill items animation
+                const skillItems = document.querySelectorAll('.skill-item');
+                skillItems.forEach(item => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    item.style.transition = 'all 0.6s ease';
+                });
+            
+                // Update scroll event listener
+                window.addEventListener('scroll', function() {
+                    const elements = document.querySelectorAll('.card, .project-card, .skill-item');
+                    elements.forEach(element => {
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const screenPosition = window.innerHeight / 1.3;
+                        
+                        if (elementPosition < screenPosition) {
+                            element.style.opacity = '1';
+                            element.style.transform = 'translateY(0)';
+                        }
+                    });
+                });
+            });
+            </script>
+
+
+        <section id="education">
+            <h1>Pendidikan</h1>
+            <div class="card">
+                <h2>S1 Sistem Informasi</h2>
+                <p class="date">Universitas Internasional Semen Indonesia | 2023 - sekarang</p>
+                <p>Fokus pada pengembangan web dan mobile application. Rencana projek tugas akhir tentang pengembangan game berbasis ai dan sistem informasi sebagai sarana edukasi.</p>
+            </div>
+            <div class="card">
+                <h3>Bootcamp Full Stack Web Development</h3>
+                <p class="date">Dicoding Academy | 2023</p>
+                <p>Menyelesalkan bootcamp intensif 6 bulan dengan penekanan pada teknologi MERN stack (MongoDB, Express, React, Node.js).</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h1>Proyek saya</h1>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 1" class="project-img">
+                    <div class="project-info">
+                        <h3>Proyek 1: Aplikasi service otomotif</h3>
+                        <p>Aplikasi ini membantu pengguna mencari bengkel berkualitas.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 2" class="project-img">
+                    <div class="project-info">
+                        <h3>Proyek 2: Aplikasi Market online</h3>
+                        <p>Aplikasi ini adalah platform marketplace untuk toko online.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 3" class="project-img">
+                    <div class="project-info">
+                        <h3>Proyek 3: Aplikasi Job finder</h3>
+                        <p>Aplikasi ini membantu para pencari kerja atau job seeker mendapatkan pekerjaan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- Replace the existing contact section with this -->
+<section id="contact">
+    <h1>Hubungi Saya</h1>
+    <div class="contact-container">
+        <div class="contact-wrapper">
+            <!-- Left Side - Contact Form -->
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                        <input type="text" id="alamat" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+            </div>
+
+            <!-- Right Side - Map -->
+            <div class="contact-map">
+                <div id="map"></div>
+                <div class="location-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Gresik, Jawa Timur</p>
+                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add this CSS -->
+<style>
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: start;
+    }
+
+    .contact-form {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-map {
+        height: 500px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #map {
+        height: 100%;
+        width: 100%;
+    }
+
+    .location-info {
+        padding: 15px;
+        background: var(--primary-color);
+        color: white;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .contact-wrapper {
+            grid-template-columns: 1fr;
+        }
+        
+        .contact-map {
+            height: 400px;
+        }
+    }
+</style>
+
+<!-- Update the form submission script -->
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            alamat: document.getElementById('alamat').value,
+            message: document.getElementById('message').value
+        };
+
+        console.log('Form submitted:', formData);
+        alert('Terima kasih! Pesan Anda telah terkirim.');
+        this.reset();
+    });
+</script>
+         
         <div class="container">
-            <p>&copy; 2025 Mohamad Dimas Ardana Pramudya Putra. All rights reserved.</p>
+            <p>&copy; 2025 Mohamad Dimas A. All rights reserved.</p>
         </div>
-    </footer>
+    </footer> 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', { name, email, message });
+            
+            // Show success message
+            alert('Terima kasih! Pesan Anda telah terkirim.');
+            
+            // Reset form
+            this.reset();
+        });
+        // Add after your existing form submission code
+// Google Maps Integration
+let map;
+let marker;
+let autocomplete;
+
+async function initMap() {
+    const { Map } = await google.maps.importLibrary("maps");
+    const { Autocomplete } = await google.maps.importLibrary("places");
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+    // Gresik coordinates
+    const gresik = { lat: -7.155029, lng: 112.656807 };
+    
+    map = new Map(document.getElementById("map"), {
+        zoom: 14,
+        center: gresik,
+        mapId: "PORTFOLIO_MAP"
+    });
+
+    marker = new AdvancedMarkerElement({
+        map,
+        position: gresik,
+        title: "Lokasi Saya"
+    });
+
+    // Initialize Autocomplete
+    autocomplete = new Autocomplete(document.getElementById('address-autocomplete'), {
+        fields: ["address_components", "geometry", "name"],
+        componentRestrictions: { country: "id" }
+    });
+
+    autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) return;
+        
+        marker.position = place.geometry.location;
+        map.setCenter(place.geometry.location);
+    });
+}
+
+// Initialize the map
+initMap();
+
+// Materialize Initialization
+document.addEventListener('DOMContentLoaded', function() {
+    const selects = document.querySelectorAll('select');
+    M.FormSelect.init(selects);
+});
+
+        // Simple animation on scroll
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.card, .project-card');
+            cards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize card styles for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card, .project-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        });
+    </script>
+</body>
+</html>
